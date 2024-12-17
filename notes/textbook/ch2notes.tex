@@ -32,6 +32,8 @@
 \pgfplotsset{compat=1.18}
 \newcommand\der[2]{\frac{d #1}{d #2}}
 \newcommand\Deltat{\Delta t}
+\newcommand{\ih}{\hat{\imath}}
+\newcommand{\jh}{\hat{\jmath}}
 \newcommand{\AxisRotator}[1][rotate=0]{%
     \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
 }
@@ -193,5 +195,51 @@ Expressing vectors in component form allows scalar multiplication and vector add
         &= r\vec{u} + r\vec{v}
     \end{align*}
 \end{shaded}
+\newpage\noindent
+In some cases, only the magnitude and direction of a vector are known, not the initial or terminal points. For these vectors, the horizontal and vertical components can be identified using trigonometry.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \draw (0,0) coordinate (a);
+        \draw (1,0) coordinate (b);
+        \draw (1,1.333) coordinate (c);
+        \draw pic["$\theta$",draw=black,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=b--a--c};
+        \draw[black!70] (0.9,0)--(0.9,0.1)--(1,0.1);
+        \draw[thick,green!40!blue] (a)--node[below,color=black]{$||\vec{v}||\cos(\theta)$}(b)--node[right,color=black]{$||\vec{v}||\sin(\theta)$}(c);
+        \draw[->,very thick,-latex,red!50!orange] (a)--node[above,color=black,xshift=-0.75em]{$||\vec{v}||$}(c);
+    \end{tikzpicture}
+\end{center}
+Consider the angle $\theta$ formed by the vector $\vec{v}$ and the positive $x$-axis. From the triangle above, the components of the vector $\vec{v}$ are $\la ||\vec{v}||\cos(\theta),||\vec{v}||\sin(\theta) \ra$. Therefore, given an angle and the magnitude of a vector, the components can be found using the sine and cosine of the angle.
+\vspace{2mm}\\
+\bf{Unit Vectors}
+\vspace{2mm}\\
+A unit vector is a vector with magnitude 1. For any nonzero vector $\vec{v}$, scalar multiplication can be used to find a unit vector $\vec{u}$ that has the same direction as $\vec{v}$ by multiplying the vector by the reciprocal of its magnitude.
+\begin{align*}
+    \vec{u} = \frac{1}{||\vec{v}||}\vec{v}
+\end{align*} 
+Recall that for scalar multiplication, $||k\vec{v}|| = |k| \cdot ||\vec{v}||$. For $\vec{u} = \frac{1}{||\vec{v}||}\vec{v}$ it follows that $||\vec{u}|| = \frac{1}{||\vec{v}||}(||\vec{v}||) = 1$. We say that $\vec{u}$ is the unit vector in the direction of $\vec{v}$. The process of using scalar multiplication to find a unit vector with a given direction is called normalization.
+\vspace{1mm}\\
+Sometimes it is more convenient to write a vector as a sum of a horizontal vector and a vertical vector. To do this, the standard unit vectors $\ih = \la 1, 0 \ra$ and $\jh = \la 0, 1 \ra$ are used.
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[->,thick,-latex] (-0.1,0)--(2,0) node[right]{$x$};
+        \draw[->,thick,-latex] (0,-0.1)--(0,1.5) node[above]{$y$};
+        \draw[<->,very thick,latex-latex,green!40!blue] (1,0)--node[below,color=black]{$\ih = \la 1, 0 \ra$}(0,0)--node[left,color=black]{$\jh = \la 0, 1 \ra$}(0,1);
+    \end{tikzpicture}
+\end{center}
+By applying the properties of vectors, it is possible to express any vector in terms of $\ih$ and $\jh$ in what is called a linear combination.
+\begin{align*}
+    \vec{v} = \la x, y \ra = \la x, 0 \ra + \la 0, y \ra = x\la 1, 0 \ra + y\la 0, 1 \ra = x\ih + y\jh
+\end{align*}
+Thus $\vec{v}$ is the sum of a horizontal vector with magnitude $x$ and a vertical vector with magnitude $y$ as shown below.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \draw[->,very thick,-latex,green!40!blue] (0,0)--node[below,color=black]{$x\ih$}(1.5,0);
+        \draw[->,very thick,-latex,green!40!blue] (1.5,0)--node[right,color=black]{$y\jh$}(1.5,1);
+        \draw[->,very thick,-latex,green!40!blue] (0,0)--node[above,color=black,xshift=-0.25em]{$\vec{v}$}(1.5,1);
+    \end{tikzpicture}
+\end{center}
+
+\newpage
+\subsection{Vectors in Three Dimensions}
 
 \end{document}
