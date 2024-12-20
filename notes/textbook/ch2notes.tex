@@ -22,6 +22,7 @@
 \usetikzlibrary{quotes,angles}
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{calc}
+\usetikzlibrary{3d}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/ch2figures/]
 \usepgfplotslibrary{fillbetween}
@@ -244,10 +245,59 @@ Thus $\vec{v}$ is the sum of a horizontal vector with magnitude $x$ and a vertic
 \newpage
 \subsection{Vectors in Three Dimensions}
 The two-dimensional rectangular coordinate system can be expanded by adding a third dimension, the $z$-axis which is perpendicular to both the $x$-axis and the $y$-axis.
+\vspace{2mm}\\
+\bf{Three-Dimensional Coordinate Systems}
 \begin{shaded}
     \noindent\underline{\bf{Definition}}
     \vspace{2mm}\\
-    The three-dimensional rectangular coordinate system consists of three perpendicular axes: the $x$-, $y$-, and $z$-axes, and an origin at the point of intersection
+    The three-dimensional rectangular coordinate system consists of three perpendicular axes: the $x$-, $y$-, and $z$-axes, and an origin at the point of intersection (0) of the axes. Because each axis is a number line representing all real numbers in $\mathbb{R}$, the three-dimensional system is often denoted by $\mathbb{R}^3$.
+\end{shaded}
+\noindent In two dimensions, a point in the plane is described with the coordinates $(x,y)$. Each coordinate describes how the point aligns with the corresponding axis. In three dimensions, a new coordinate $z$ is appended to indicate alignment with the $z$-axis: $(x,y,z)$.
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[<->,thick,latex-latex] (0,2)--(0,0)--(3,0);
+        \node[right] at (3,0) {$y$};
+        \node[above] at (0,2) {$z$};
+        \draw[->,thick,-latex] (0,0)--(-{sqrt(2)},-{sqrt(2)}) node[below,xshift=-0.3em]{$x$};
+        \draw[thick,green!40!blue] (1.5,0)--(0,0)--(0,1);
+        \draw[thick,green!40!blue] (0,0)--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
+        \draw[thick,dashed,black!75] ({-(sqrt(2)/2)},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
+        \draw[thick,dashed,black!75] ({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--(1.5,0)--(1.5,1)--(0,1)--({-(sqrt(2)/2)},{1-(sqrt(2)/2)});
+        \draw[thick,dashed,black!75] ({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--(1.5,1);
+        \filldraw[black!85] ({1.5 - (sqrt(2))/2},{1 - (sqrt(2))/2}) circle (1.25pt) node[above,xshift=-1.5em,color=black]{$(x,y,z)$};
+    \end{tikzpicture}
+\end{center}
+In two-dimensional space, the coordinate plane is defined by a pair of perpendicular axes, these axes allow any location in the plane to be named. In three dimensions, coordinate planes are defined by the coordinate axes as in two dimensions. Each pair of axes forms a coordinate plane: the $xy$-plane, the $xz$-plane, and the $yz$-plane. The $xy$-plane is formally defined as the following set: $\{(x,y,0):x,y\in\mathbb{R}\}$. The $xz$-plane and $yz$-plane are defined as $\{(x,0,z):x,z\in\mathbb{R}\}$ and $\{(0,y,z):y,z\in\mathbb{R}\}$ respectively.
+\begin{center}
+    \begin{tikzpicture}[line cap=round,line join=round,x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=2]
+        \def\op{0.85}
+        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,-1,-1)--(0,0,-1)--(0,0,0)--(0,-1,0)--cycle; % It doesn't show
+        \draw[fill=white!5!yellow!40!green,fill opacity=\op] (-1,0,-1)--(1,0,-1)--(1,0,0)--(-1,0,0)--cycle;
+        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,1,-1)--(0,0,-1)--(0,0,0)--(0,1,0)--cycle;
+        \draw[fill=green!40!white!60!blue,fill opacity=\op] (-1,-1, 0)--(-1,1,0)--(1,1,0)--(1,-1,0)--cycle;
+        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,-1,0)--(0,0,0)--(0,0,1)--(0,-1,1)--cycle;
+        \draw[dashed] (0,0,0)--(0,-1.25,0);
+        \draw[fill=white!5!yellow!40!green,fill opacity=\op] (-1,0,0)--(1,0,0)--(1,0,1)--(-1,0,1)--cycle;
+        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,1,0)--(0,0,0)--(0,0,1)--(0,1,1)--cycle;
+        \draw[->,thick,-latex] (0,0,0)--(1.25,0,0) node[left]{$x$};
+        \draw[->,thick,-latex] (0,0,0)--(0,1.25,0) node[below,xshift=1mm]{$y$};
+        \draw[->,thick,-latex] (0,0,0)--(0,0,1.25) node[above]{$z$};
+        \draw[dashed] (-1,0,0)--(-1.25,0,0);
+        \draw[dashed] (0,0,-1)--(0,0,-1.25);
+      \end{tikzpicture}
+\end{center}
+If two points lie in the same coordinate plane, then it is straightforward to calculate the distance between them. The distance $d$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ in the $xy$-coordinate plane is given by the formula
+\begin{align*}
+    d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+\end{align*}
+The formula for the distance between two points in space is a natural extension of this formula.
+\begin{shaded}
+    \noindent\underline{\bf{The Distance Between Two Points in Space}}
+    \vspace{2mm}\\
+    The distance $d$ between points $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is given by the formula
+    \begin{align}
+        d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+    \end{align}
 \end{shaded}
 
 \end{document}
