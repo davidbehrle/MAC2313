@@ -18,6 +18,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{fix-cm}
 \usepackage{cancel}
+\usepackage{pagecolor}
 \usepackage[margin=0.5in]{geometry}
 \usetikzlibrary{quotes,angles}
 \usetikzlibrary{decorations.pathreplacing}
@@ -30,7 +31,6 @@
 \let\bf\textbf
 \let\la\langle
 \let\ra\rangle
-\colorlet{shadecolor}{orange!15}
 \pgfplotsset{compat=1.18}
 \newcommand\der[2]{\frac{d #1}{d #2}}
 \newcommand\Deltat{\Delta t}
@@ -46,7 +46,46 @@
 \author{OpenStax Calculus Vol. 3}
 \date{}
 
+\definecolor{fg0}{HTML}{fbf1c7}
+
+\makeatletter % change only the display of \thepage, but not \thepage itself:
+\patchcmd{\ps@plain}{\thepage}{\textcolor{fg1}{\thepage}}{}{}
+\makeatother
+
 \begin{document}
+\pagestyle{plain}
+
+\definecolor{bg0}{HTML}{282828}
+\definecolor{bg0_h}{HTML}{1d2021}
+\definecolor{bg0_s}{HTML}{32302f}
+\definecolor{bg1}{HTML}{3c3836}
+\definecolor{bg2}{HTML}{504945}
+\definecolor{bg3}{HTML}{665c54}
+\definecolor{bg4}{HTML}{7c6f64}
+\definecolor{fg1}{HTML}{ebdbb2}
+\definecolor{fg2}{HTML}{d5c4a1}
+\definecolor{fg3}{HTML}{bdae93}
+\definecolor{fg4}{HTML}{a89984}
+\definecolor{gbaqua}{HTML}{8ec07c}
+\definecolor{gbaqua2}{HTML}{689d6a}
+\definecolor{gbred}{HTML}{fb4934}
+\definecolor{gbred2}{HTML}{cc241d}
+\definecolor{gbgreen}{HTML}{b8bb26}
+\definecolor{gbgreen2}{HTML}{98971a}
+\definecolor{gbyellow}{HTML}{fabd2f}
+\definecolor{gbyellow2}{HTML}{d79921}
+\definecolor{gbblue}{HTML}{83a598}
+\definecolor{gbblue2}{HTML}{458588}
+\definecolor{gbpurple}{HTML}{d3869b}
+\definecolor{gbpurple2}{HTML}{b16286}
+\definecolor{gborange}{HTML}{fe8019}
+\definecolor{gborange2}{HTML}{d65d0e}
+\definecolor{gbgray}{HTML}{a89984}
+\definecolor{gbgray2}{HTML}{928374}
+\color{fg0}
+\pagecolor{bg0_s}
+\colorlet{shadecolor}{gbaqua2}
+
 \setcounter{section}{2}
 \maketitle
 
@@ -68,14 +107,14 @@ Scalars are quantities that have only a magnitude and no direction. Multiplying 
         \draw ({1.5*cos(20)},{1.5*sin(20)}) coordinate (b);
         \draw ({cos(110)},{sin(110)}) coordinate (c);
         \draw ({1.5*cos(20) + cos(110)},{1.5*sin(20) + sin(110)})coordinate (d);
-        \draw[dashed,very thick,white!25!blue] (c)--(d)--(b);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[left,color=black,xshift=-0.25em]{$\vec{v}$}(c);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[below,color=black]{$\vec{w}$}(b);
-        \draw[->,very thick,-latex,white!20!red] (a)--node[above,color=black,rotate=53.69]{$\vec{v} + \vec{w}$}(d);
-        \filldraw[black] (a) circle (1pt);
-        \filldraw[black] (b) circle (1pt);
-        \filldraw[black] (c) circle (1pt);
-        \filldraw[black] (d) circle (1pt);
+        \draw[dashed,very thick,gbblue2] (c)--(d)--(b);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[left,color=fg1,xshift=-0.25em]{$\vec{v}$}(c);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[below,color=fg1]{$\vec{w}$}(b);
+        \draw[->,very thick,-latex,gbred2] (a)--node[above,color=fg1,rotate=53.69]{$\vec{v} + \vec{w}$}(d);
+        \filldraw[fg1] (a) circle (1pt);
+        \filldraw[fg1] (b) circle (1pt);
+        \filldraw[fg1] (c) circle (1pt);
+        \filldraw[fg1] (d) circle (1pt);
     \end{tikzpicture}
     \hspace{1.5cm}
     \begin{tikzpicture}[scale=2]
@@ -83,14 +122,14 @@ Scalars are quantities that have only a magnitude and no direction. Multiplying 
         \draw ({1.5*cos(20)},{1.5*sin(20)}) coordinate (b);
         \draw ({cos(110)},{sin(110)}) coordinate (c);
         \draw ({1.5*cos(20) + cos(110)},{1.5*sin(20) + sin(110)})coordinate (d);
-        \draw[dashed,very thick,white!25!blue] (d)--(b)--(a);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[left,color=black,xshift=-0.25em]{$\vec{v}$}(c);
-        \draw[->,very thick,-latex,white!20!blue] (c)--node[above,color=black]{$\vec{w}$}(d);
-        \draw[->,very thick,-latex,white!20!red] (a)--node[above,color=black,rotate=53.69]{$\vec{v} + \vec{w}$}(d);
-        \filldraw[black] (a) circle (1pt);
-        \filldraw[black] (b) circle (1pt);
-        \filldraw[black] (c) circle (1pt);
-        \filldraw[black] (d) circle (1pt);
+        \draw[dashed,very thick,gbblue2] (d)--(b)--(a);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[left,color=fg1,xshift=-0.25em]{$\vec{v}$}(c);
+        \draw[->,very thick,-latex,gbblue2] (c)--node[above,color=fg1]{$\vec{w}$}(d);
+        \draw[->,very thick,-latex,gbred2] (a)--node[above,color=fg1,rotate=53.69]{$\vec{v} + \vec{w}$}(d);
+        \filldraw[fg1] (a) circle (1pt);
+        \filldraw[fg1] (b) circle (1pt);
+        \filldraw[fg1] (c) circle (1pt);
+        \filldraw[fg1] (d) circle (1pt);
     \end{tikzpicture}
 \end{center}
 For $\vec{u} = \vec{v} + \vec{w}$, the initial point of $\vec{u}$ is the initial point of $\vec{v}$ and the terminal point is the terminal point of $\vec{w}$. These three vectors form a triangle, it follows that the length of any one side is less than the sum of the lengths of the remaining sides, therefore: $||\vec{u}|| \leq ||\vec{v}|| + ||\vec{w}||$
@@ -102,9 +141,9 @@ For vector subtraction, $\vec{v} - \vec{w}$ is defined as $\vec{v} + (-\vec{w}) 
         \draw ({1.2*cos(20)},{1.2*sin(20)}) coordinate (b);
         \draw ({cos(110)},{sin(110)}) coordinate (c);
         \draw ({1.5*cos(20) + cos(110)},{1.5*sin(20) + sin(110)})coordinate (d);
-        \draw[->,very thick,-latex,white!20!red] (b)--node[right,color=black]{$\vec{v} - \vec{w}$}(d);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[below,color=black]{$\vec{w}$} (b);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[above,color=black,xshift=-0.5em]{$\vec{v}$}(d);
+        \draw[->,very thick,-latex,gbred2] (b)--node[right,color=fg1]{$\vec{v} - \vec{w}$}(d);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[below,color=fg1]{$\vec{w}$} (b);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[above,color=fg1,xshift=-0.5em]{$\vec{v}$}(d);
     \end{tikzpicture}
     \hspace{1.5cm}
     \begin{tikzpicture}[scale=1.5]
@@ -112,11 +151,11 @@ For vector subtraction, $\vec{v} - \vec{w}$ is defined as $\vec{v} + (-\vec{w}) 
         \draw ({1.2*cos(20)},{1.2*sin(20)}) coordinate (b);
         \draw ({(1.5*cos(20) + cos(110)) - (1.2*cos(20))},{(1.5*sin(20) + sin(110)) - (1.2*sin(20))}) coordinate (c);
         \draw ({1.5*cos(20) + cos(110)},{1.5*sin(20) + sin(110)})coordinate (d);
-        \draw[dashed,very thick,white!25!red] (b)--(d);
-        \draw[->,very thick,-latex,white!20!red] (a)--node[left,color=black]{$\vec{v}+ (-\vec{w})$}(c);
-        \draw[dashed,very thick,white!25!blue] (a)--(b);
-        \draw[->,very thick,-latex,white!20!blue] (a)--node[above,color=black,xshift=-0.5em]{$\vec{v}$}(d);
-        \draw[->,very thick,-latex,white!20!blue] (d)--node[above,color=black]{$-\vec{w}$}(c);
+        \draw[dashed,very thick,gbred2] (b)--(d);
+        \draw[->,very thick,-latex,gbred2] (a)--node[left,color=fg1]{$\vec{v}+ (-\vec{w})$}(c);
+        \draw[dashed,very thick,gbblue2] (a)--(b);
+        \draw[->,very thick,-latex,gbblue2] (a)--node[above,color=fg1,xshift=-0.5em]{$\vec{v}$}(d);
+        \draw[->,very thick,-latex,gbblue2] (d)--node[above,color=fg1]{$-\vec{w}$}(c);
     \end{tikzpicture}
 \end{center}
 \bf{Vector Components}\vspace{2mm}\\
@@ -148,9 +187,9 @@ The magnitude of a vector can also be derived using Pythagorean theorem.
         \draw (0,0) coordinate (a);
         \draw (2,0) coordinate (b);
         \draw (2,0.75) coordinate (c);
-        \draw[black!70] (1.85,0)--(1.85,0.15)--(2,0.15);
-        \draw[thick,black!70] (a)--node[below,color=black]{$x$}(b)--node[right,color=black]{$y$}(c);
-        \draw[->,very thick,-latex,red!20!orange] (a)--node[above,color=black,xshift=-0.75em]{$\sqrt{x^2 + y^2}$} (c); 
+        \draw[bg3] (1.85,0)--(1.85,0.15)--(2,0.15);
+        \draw[thick,fg1] (a)--node[below,color=fg1]{$x$}(b)--node[right,color=fg1]{$y$}(c);
+        \draw[->,very thick,-latex,gborange] (a)--node[above,color=fg1,xshift=-0.75em]{$\sqrt{x^2 + y^2}$} (c); 
     \end{tikzpicture}
 \end{center}
 Expressing vectors in component form allows scalar multiplication and vector addition to be performed algebraically.
@@ -204,10 +243,10 @@ In some cases, only the magnitude and direction of a vector are known, not the i
         \draw (0,0) coordinate (a);
         \draw (1,0) coordinate (b);
         \draw (1,1.333) coordinate (c);
-        \draw pic["$\theta$",draw=black,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=b--a--c};
-        \draw[black!70] (0.9,0)--(0.9,0.1)--(1,0.1);
-        \draw[thick,green!40!blue] (a)--node[below,color=black]{$||\vec{v}||\cos(\theta)$}(b)--node[right,color=black]{$||\vec{v}||\sin(\theta)$}(c);
-        \draw[->,very thick,-latex,red!50!orange] (a)--node[above,color=black,xshift=-0.75em]{$||\vec{v}||$}(c);
+        \draw pic["$\theta$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=b--a--c};
+        \draw[bg3] (0.9,0)--(0.9,0.1)--(1,0.1);
+        \draw[thick,gbblue2] (a)--node[below,color=fg1]{$||\vec{v}||\cos(\theta)$}(b)--node[right,color=fg1]{$||\vec{v}||\sin(\theta)$}(c);
+        \draw[->,very thick,-latex,gbred] (a)--node[above,color=fg1,xshift=-0.75em]{$||\vec{v}||$}(c);
     \end{tikzpicture}
 \end{center}
 Consider the angle $\theta$ formed by the vector $\vec{v}$ and the positive $x$-axis. From the triangle above, the components of the vector $\vec{v}$ are $\la ||\vec{v}||\cos(\theta),||\vec{v}||\sin(\theta) \ra$. Therefore, given an angle and the magnitude of a vector, the components can be found using the sine and cosine of the angle.
@@ -225,7 +264,7 @@ Sometimes it is more convenient to write a vector as a sum of a horizontal vecto
     \begin{tikzpicture}[scale=1.5]
         \draw[->,thick,-latex] (-0.1,0)--(2,0) node[right]{$x$};
         \draw[->,thick,-latex] (0,-0.1)--(0,1.5) node[above]{$y$};
-        \draw[<->,very thick,latex-latex,green!40!blue] (1,0)--node[below,color=black]{$\ih = \la 1, 0 \ra$}(0,0)--node[left,color=black]{$\jh = \la 0, 1 \ra$}(0,1);
+        \draw[<->,very thick,latex-latex,gbblue2] (1,0)--node[below,color=fg1]{$\ih = \la 1, 0 \ra$}(0,0)--node[left,color=fg1]{$\jh = \la 0, 1 \ra$}(0,1);
     \end{tikzpicture}
 \end{center}
 By applying the properties of vectors, it is possible to express any vector in terms of $\ih$ and $\jh$ in what is called a linear combination.
@@ -235,9 +274,9 @@ By applying the properties of vectors, it is possible to express any vector in t
 Thus $\vec{v}$ is the sum of a horizontal vector with magnitude $x$ and a vertical vector with magnitude $y$ as shown below.
 \begin{center}
     \begin{tikzpicture}[scale=2]
-        \draw[->,very thick,-latex,green!40!blue] (0,0)--node[below,color=black]{$x\ih$}(1.5,0);
-        \draw[->,very thick,-latex,green!40!blue] (1.5,0)--node[right,color=black]{$y\jh$}(1.5,1);
-        \draw[->,very thick,-latex,green!40!blue] (0,0)--node[above,color=black,xshift=-0.25em]{$\vec{v}$}(1.5,1);
+        \draw[->,very thick,-latex,gbblue2] (0,0)--node[below,color=fg1]{$x\ih$}(1.5,0);
+        \draw[->,very thick,-latex,gbblue2] (1.5,0)--node[right,color=fg1]{$y\jh$}(1.5,1);
+        \draw[->,very thick,-latex,gbblue2] (0,0)--node[above,color=fg1,xshift=-0.25em]{$\vec{v}$}(1.5,1);
     \end{tikzpicture}
 \end{center}
 
@@ -258,26 +297,26 @@ The two-dimensional rectangular coordinate system can be expanded by adding a th
         \node[right] at (3,0) {$y$};
         \node[above] at (0,2) {$z$};
         \draw[->,thick,-latex] (0,0)--(-{sqrt(2)},-{sqrt(2)}) node[below,xshift=-0.3em]{$x$};
-        \draw[thick,green!40!blue] (1.5,0)--(0,0)--(0,1);
-        \draw[thick,green!40!blue] (0,0)--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
-        \draw[thick,dashed,black!75] ({-(sqrt(2)/2)},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
-        \draw[thick,dashed,black!75] ({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--(1.5,0)--(1.5,1)--(0,1)--({-(sqrt(2)/2)},{1-(sqrt(2)/2)});
-        \draw[thick,dashed,black!75] ({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--(1.5,1);
-        \filldraw[black!85] ({1.5 - (sqrt(2))/2},{1 - (sqrt(2))/2}) circle (1.25pt) node[above,xshift=-1.5em,color=black]{$(x,y,z)$};
+        \draw[thick,gbblue2] (1.5,0)--(0,0)--(0,1);
+        \draw[thick,gbblue2] (0,0)--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
+        \draw[thick,dashed,fg4] ({-(sqrt(2)/2)},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{1-(sqrt(2)/2)})--({-(sqrt(2)/2)},{-(sqrt(2)/2)});
+        \draw[thick,dashed,fg4] ({-(sqrt(2)/2) + 1.5},{-(sqrt(2)/2)})--(1.5,0)--(1.5,1)--(0,1)--({-(sqrt(2)/2)},{1-(sqrt(2)/2)});
+        \draw[thick,dashed,fg4] ({-(sqrt(2)/2) + 1.5},{1-(sqrt(2)/2)})--(1.5,1);
+        \filldraw[fg1] ({1.5 - (sqrt(2))/2},{1 - (sqrt(2))/2}) circle (1.25pt) node[above,xshift=-1.5em,color=fg1]{$(x,y,z)$};
     \end{tikzpicture}
 \end{center}
 In two-dimensional space, the coordinate plane is defined by a pair of perpendicular axes, these axes allow any location in the plane to be named. In three dimensions, coordinate planes are defined by the coordinate axes as in two dimensions. Each pair of axes forms a coordinate plane: the $xy$-plane, the $xz$-plane, and the $yz$-plane. The $xy$-plane is formally defined as the following set: $\{(x,y,0):x,y\in\mathbb{R}\}$. The $xz$-plane and $yz$-plane are defined as $\{(x,0,z):x,z\in\mathbb{R}\}$ and $\{(0,y,z):y,z\in\mathbb{R}\}$ respectively.
 \begin{center}
     \begin{tikzpicture}[line cap=round,line join=round,x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=2]
         \def\op{0.85}
-        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,-1,-1)--(0,0,-1)--(0,0,0)--(0,-1,0)--cycle; % It doesn't show
-        \draw[fill=white!5!yellow!40!green,fill opacity=\op] (-1,0,-1)--(1,0,-1)--(1,0,0)--(-1,0,0)--cycle;
-        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,1,-1)--(0,0,-1)--(0,0,0)--(0,1,0)--cycle;
-        \draw[fill=green!40!white!60!blue,fill opacity=\op] (-1,-1, 0)--(-1,1,0)--(1,1,0)--(1,-1,0)--cycle;
-        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,-1,0)--(0,0,0)--(0,0,1)--(0,-1,1)--cycle;
+        \draw[fill=gbred,fill opacity=\op] (0,-1,-1)--(0,0,-1)--(0,0,0)--(0,-1,0)--cycle; % It doesn't show
+        \draw[fill=gbgreen,fill opacity=\op] (-1,0,-1)--(1,0,-1)--(1,0,0)--(-1,0,0)--cycle;
+        \draw[fill=gbred,fill opacity=\op] (0,1,-1)--(0,0,-1)--(0,0,0)--(0,1,0)--cycle;
+        \draw[fill=gbblue,fill opacity=\op] (-1,-1, 0)--(-1,1,0)--(1,1,0)--(1,-1,0)--cycle;
+        \draw[fill=gbred,fill opacity=\op] (0,-1,0)--(0,0,0)--(0,0,1)--(0,-1,1)--cycle;
         \draw[dashed] (0,0,0)--(0,-1.25,0);
-        \draw[fill=white!5!yellow!40!green,fill opacity=\op] (-1,0,0)--(1,0,0)--(1,0,1)--(-1,0,1)--cycle;
-        \draw[fill=red!30!white!5!orange,fill opacity=\op] (0,1,0)--(0,0,0)--(0,0,1)--(0,1,1)--cycle;
+        \draw[fill=gbgreen,fill opacity=\op] (-1,0,0)--(1,0,0)--(1,0,1)--(-1,0,1)--cycle;
+        \draw[fill=gbred,fill opacity=\op] (0,1,0)--(0,0,0)--(0,0,1)--(0,1,1)--cycle;
         \draw[->,thick,-latex] (0,0,0)--(1.25,0,0) node[left]{$x$};
         \draw[->,thick,-latex] (0,0,0)--(0,1.25,0) node[below,xshift=1mm]{$y$};
         \draw[->,thick,-latex] (0,0,0)--(0,0,1.25) node[above]{$z$};
@@ -307,23 +346,23 @@ Compare the graphs of $x = 0$ in $\mathbb{R}$, $\mathbb{R}^2$, and $\mathbb{R}^3
         \draw[->,thick,-latex] (0,0)--(1,0) node{};
         \draw[->,thick,-latex] (0,0)--(-1,0);
         \foreach \x in  {-2,-1,0,1,2} % edit here for the vertical lines
-        \draw[shift={(\x/3,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+        \draw[shift={(\x/3,0)},color=fg1] (0pt,3pt) -- (0pt,-3pt);
         \foreach \x in {-2,-1,0,1,2} % edit here for the numbers
-        \draw[shift={(\x/3,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
-        \filldraw[color=white!10!green!40!blue] (0,0) circle (1.5pt);
+        \draw[shift={(\x/3,0)},color=fg1] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
+        \filldraw[color=gbblue2] (0,0) circle (1.5pt);
         \node at (0,-1.25){$\mathbb{R}$};
     \end{tikzpicture}
     \begin{tikzpicture}[scale=1]
-        \draw[step=0.2,gray] (-1.8,-1.8) grid (1.8,1.8);
+        \draw[step=0.2,bg3] (-1.8,-1.8) grid (1.8,1.8);
         \draw[<->,thick,latex-latex] (0,2)--(0,0)--(2,0);
         \draw[<->,thick,latex-latex] (-2,0)--(0,0)--(0,-2);
-        \draw[<->,ultra thick,latex-latex,color=white!20!green!40!blue] (0,-1.8)--(0,1.8);
+        \draw[<->,ultra thick,latex-latex,color=gbblue2] (0,-1.8)--(0,1.8);
         \node[right] at (2,0) {$x$};
         \node[above] at (0,2) {$y$};
         \node at (0,-2.5){$\mathbb{R}^2$};
     \end{tikzpicture}
     \begin{tikzpicture}[x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=1]
-        \filldraw[color=white!10!green!40!blue,fill=white!10!green!40!blue,opacity=0.8] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
+        \filldraw[color=gbblue2,fill=gbblue2,opacity=0.8] (2,0,2)--(-2,0,2)--(-2,0,-2)--(2,0,-2)--cycle;
         \draw[->,thick,latex-latex] (-2.25,0,0)--(2.25,0,0);
         \draw[->,thick,latex-latex] (0,-2.5,0)--(0,2.5,0)node[below,xshift=1mm]{$x$};
         \draw[->,thick,latex-latex] (0,0,-2.3)--(0,0,2.3)node[above]{$z$};
@@ -334,7 +373,7 @@ Compare the graphs of $x = 0$ in $\mathbb{R}$, $\mathbb{R}^2$, and $\mathbb{R}^3
 In space, the equation $x = 0$ describes all points $(0,y,z)$ and defines the $yz$-plane. Similarly, the the $xy$-plane contains all points of the form $(x,y,0)$ and is defined by the equation $z = 0$. The equation $y = 0$ defines the $xz$-plane.
 \begin{center}
     \begin{tikzpicture}[x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=1]
-        \filldraw[color=white!5!yellow!40!green,fill=white!5!yellow!40!green,opacity=0.8] (2,2,0)--(-2,2,0)--(-2,-2,0)--(2,-2,0)--cycle;
+        \filldraw[color=gbgreen2,fill=gbgreen,opacity=0.8] (2,2,0)--(-2,2,0)--(-2,-2,0)--(2,-2,0)--cycle;
         \draw[->,thick,latex-latex] (-2.35,0,0)--(2.35,0,0);
         \draw[->,thick,latex-latex] (0,-2.5,0)--(0,2.5,0)node[below,xshift=1mm]{$x$};
         \draw[->,thick,latex-latex] (0,0,-2.4)--(0,0,2.4)node[above]{$z$};
@@ -343,7 +382,7 @@ In space, the equation $x = 0$ describes all points $(0,y,z)$ and defines the $y
     \end{tikzpicture}
     \hspace{10mm}
     \begin{tikzpicture}[x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=1]
-        \filldraw[color=red!30!white!5!orange,fill=red!30!white!5!orange,opacity=0.8] (0,2,2)--(0,-2,2)--(0,-2,-2)--(0,2,-2)--cycle;
+        \filldraw[color=gbred,fill=gbred,opacity=0.8] (0,2,2)--(0,-2,2)--(0,-2,-2)--(0,2,-2)--cycle;
         \draw[->,thick,latex-latex] (-2.25,0,0)--(2.25,0,0);
         \draw[->,thick,latex-latex] (0,-2.5,0)--(0,2.5,0)node[below,xshift=1mm]{$x$};
         \draw[->,thick,latex-latex] (0,0,-2.4)--(0,0,2.4)node[above]{$z$};
