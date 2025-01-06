@@ -390,5 +390,19 @@ In space, the equation $x = 0$ describes all points $(0,y,z)$ and defines the $y
         \node at (0,0,-3.5){$y = 0,\ xz\text{-plane}$};
     \end{tikzpicture}
 \end{center}
+When a plane is parallel to the $xy$-plane, for example, the $z$-coordinate of each point has the same constant value.
+\vspace{1mm}\\
+A sphere is the set of all points equidistant from a fixed point, the center of the sphere, just as the set of all points in a plane equidistant from the center represents a circle.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \filldraw[fg3] (0,0) circle (1);
+        \shade[ball color=gbblue,opacity=0.95] (0,0) circle (1);
+        \draw (0,0) circle (1);
+        \draw[dashed,fg1] (0,0) ellipse (1 and 0.25);
+        \draw[dashed,gbred] (0,0)--node[left,color=fg0]{$r$}({(sqrt(2))/2},{(sqrt(2))/2});
+        \filldraw ({(sqrt(2))/2},{(sqrt(2))/2}) circle (1pt);
+        \filldraw (0,0) circle (1pt);
+    \end{tikzpicture}
+\end{center}
 
 \end{document}
