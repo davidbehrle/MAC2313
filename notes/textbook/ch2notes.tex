@@ -36,6 +36,7 @@
 \newcommand\Deltat{\Delta t}
 \newcommand{\ih}{\hat{\imath}}
 \newcommand{\jh}{\hat{\jmath}}
+\newcommand{\kh}{\hat{k}}
 \newcommand{\AxisRotator}[1][rotate=0]{%
     \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
 }
@@ -404,5 +405,32 @@ A sphere is the set of all points equidistant from a fixed point, the center of 
         \filldraw (0,0) circle (1pt);
     \end{tikzpicture}
 \end{center}
+\begin{shaded}
+    \noindent\bf{\underline{Equation of a Sphere}}
+    \vspace{2mm}\\
+    A sphere with center $(a,b,c)$ and radius $r$ can be represented by the equation
+    \begin{equation}
+        (x-a)^2 + (y - b)^2 + (z - c)^2 = r^2
+    \end{equation}
+\end{shaded}
+\newpage
+\noindent\bf{Working with Vectors in $\mathbb{R}^{\mathbf{3}}$}
+\vspace{1mm}\\
+Three-dimensional vectors can be represented in component form. The notation $\vec{v} = \la x, y, z \ra$ extends the two-dimensional case and represents a vector with initial point at the origin and terminal point at $(x, y, z)$. The three-dimensional vector $\vec{v} = \la -2, 4, 1 \ra$ is represented by a directed line segment from the point $(0,0,0)$ to the point $(-2,4,1)$.
+\begin{center}
+    \begin{tikzpicture}[x={(-0.8562cm,-0.3116cm)},y={(0.5166cm,-0.5166cm)},z={(0cm,0.7975cm)},scale=1.5]
+        \draw[densely dashed,fg4] (-0.666,1.333,0.166)--(-0.666,1.333,0)--(-0.666,0,0)--(-0.666,0,0.166)--(0,0,0.166)--(0,1.333,0.166)--(0,1.333,0)--(-0.666,1.333,0);
+        \draw[->,very thick,-latex,gbred] (0,0,0)--(-0.666,1.333,0.166);
+        \draw[densely dashed,fg4] (0,1.333,0.167)--(-0.666,1.333,0.166)--(-0.666,0,0.166);
+        \node[right] at (-0.7,1.4,0.2){$\vec{v} = \la -2, 4, 1 \ra$};
+        \draw[<->,latex-latex] (-2,0,0)--(2,0,0)node[left]{$x$};
+        \draw[<->,latex-latex] (0,-2,0)--(0,2,0)node[below,xshift=1mm]{$y$};
+        \draw[<->,latex-latex] (0,0,-2)--(0,0,2)node[above]{$z$};
+    \end{tikzpicture}
+\end{center}
+The standard unit vectors are easily extended to three dimensions, $\ih = \la 1,0,0 \ra$, $\jh = \la 0,1,0 \ra$, and $\kh = \la 0,0,1 \ra$, and are used in the same way as in two dimensions. A vector in $\mathbb{R}^3$ can be represented in these ways:
+\begin{equation*}
+    \vec{v} = \la x,y,z \ra = x\ih + y\jh + z\kh
+\end{equation*}
 
 \end{document}
