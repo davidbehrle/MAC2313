@@ -433,4 +433,89 @@ The standard unit vectors are easily extended to three dimensions, $\ih = \la 1,
     \vec{v} = \la x,y,z \ra = x\ih + y\jh + z\kh
 \end{equation*}
 
+\subsection{The Dot Product}
+The first type of vector multiplication is called the dot product because of the notation used and is defined as follows:
+\begin{shaded}
+    \noindent\bf{\underline{Definition}}
+    \vspace{2mm}\\
+    Let $\vec{u} = \la u_1, u_2, u_3 \ra$ and $\vec{v} = \la v_1, v_2, v_3 \ra$ be vectors, $\vec{u},\vec{v} \in \mathbb{R}$. The dot product $\vec{u} \cdot \vec{v}$ is defined as
+    \begin{align}
+    \vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3
+    \end{align}
+\end{shaded}
+\noindent When two vectors are added or subtracted, the result is a vector; the dot product of two vectors is a scalar. Like addition and subtraction, the dot product has several algebraic properties.
+\begin{shaded}
+    \noindent\bf{\underline{Properties of the Dot Product}}
+    \vspace{2mm}\\
+    Let $\vec{u}$, $\vec{v}$, and $\vec{w}$ be vectors, and let $c$ be a scalar.
+    \begin{align*}
+        \text{i}&. &\vec{u} \cdot \vec{v} &= \vec{v} \cdot \vec{u} &\text{Commutative Property}\\
+        \text{ii}&. &\vec{u} \cdot (\vec{v} + \vec{w}) &= \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w} &\text{Distributive Property}\\
+        \text{iii}&. &c(\vec{u} \cdot \vec{v}) &= (c\vec{u}) \cdot \vec{v} = \vec{u} \cdot (c\vec{v}) &\text{Associative Property}\\
+        \text{iv}&. &\vec{v} \cdot \vec{v} &= ||\vec{v}||^2 &\text{Property of Magnitude}
+    \end{align*}
+\end{shaded}
+\noindent\bf{Using the Dot Product to Find the Angle Between Two Vectors}
+\vspace{1mm}\\
+The dot product provides a way to measure the agle between two nonzero vectors in standard position. This is due to the fact that the dot product can be expressed in terms of the cosine of the angle formed by the two vectors.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \draw (0,0) coordinate (a);
+        \draw ({sqrt(3)},1) coordinate (b);
+        \draw (0.7,{(1.25*sqrt(3))/2}) coordinate (c);
+        \draw[->,thick,-latex] (a)--node[below]{$\vec{v}$}(b);
+        \draw[->,thick,-latex] (a)--node[above,xshift=-2mm]{$\vec{u}$}(c);
+        \draw pic["$\theta$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=b--a--c};
+    \end{tikzpicture}
+\end{center}
+\noindent The dot product of two vectors is the product of the magnitude of each vector and the cosine of the angle between them
+\begin{equation}
+    \vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)
+\end{equation}
+\newpage
+\noindent\bf{Proof}
+\vspace{1mm}\\
+Place vectors $\vec{u}$ and $\vec{v}$ in standard position and consider the vector $\vec{v} - \vec{u}$. These three vectors form a triangle with side lengths $|\vec{u}|,\ |\vec{v}|$, and $|\vec{v} - \vec{u}|$.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \draw (0,0) coordinate (a);
+        \draw ({sqrt(3)},1) coordinate (b);
+        \draw (0.7,{(1.25*sqrt(3))/2}) coordinate (c);
+        \draw[->,thick,-latex] (a)--node[below]{$\vec{v}$}(b);
+        \draw[->,thick,-latex] (a)--node[above,xshift=-2mm]{$\vec{u}$}(c);
+        \draw[->,thick,-latex] (c)--node[above]{$\vec{v} - \vec{u}$}(b);
+        \draw pic["$\theta$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=b--a--c};
+    \end{tikzpicture}
+\end{center}
+Recall that the law of cosines describes the relationship between the sides of the triangle and the angle $\theta$. Applying the law of cosines here gives
+\begin{align*}
+    |\vec{v} - \vec{u}|^2 = |\vec{u}|^2 + |\vec{v}|^2 - 2|\vec{u}||\vec{v}|\cos(\theta)
+\end{align*}
+Rewriting the left side of the equation using the dot product:
+\begin{align*}
+    |\vec{v} - \vec{u}|^2 &= (\vec{v} - \vec{u}) \cdot (\vec{v} - \vec{u})\\
+    &= (\vec{v} - \vec{u}) \cdot \vec{v} - (\vec{v} - \vec{u}) \cdot \vec{u}\\
+    &= \vec{v} \cdot \vec{v} - \vec{u} \cdot \vec{v} - \vec{v} \cdot \vec{u} + \vec{u} \cdot \vec{u}\\
+    &= \vec{v} \cdot \vec{v} - \vec{u} \cdot \vec{v} - \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{u}\\
+    &= |\vec{v}|^2 - 2\vec{u} \cdot \vec{v} + |\vec{u}|^2
+\end{align*}
+Substituting this into the law of cosines gives
+\begin{align*}
+    |\vec{v} - \vec{u}|^2 &= |\vec{u}|^2 + |\vec{v}|^2 - 2|\vec{u}||\vec{v}|\cos(\theta)\\
+    |\vec{v}|^2 - 2\vec{u} \cdot \vec{v} + |\vec{u}|^2 &= |\vec{u}|^2 + |\vec{v}|^2 - 2|\vec{u}||\vec{v}|\cos(\theta)\\
+    -2\vec{u} \cdot \vec{v} &= -2|\vec{u}||\vec{v}|\cos(\theta)\\
+    \vec{u} \cdot \vec{v} &= |\vec{u}||\vec{v}|\cos(\theta)    
+\end{align*}
+This form of the dot product can be used to find the angle between two nonzero vectors. The below equation rearranges equation 3 to solve for the cosine of the angle:
+\begin{equation}
+    \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}
+\end{equation}
+Because we are considering the smallest angle between the vectors, assume $0 \leq \theta \leq \pi$. Over this range, $\arccos(\theta)$ is unique, and the angle $\theta$ can be determined.
+\begin{shaded}
+    \noindent\bf{\underline{Theorem:} Orthogonal Vectors}
+    \vspace{2mm}\\
+    Two nonzero vectors $\vec{u}$ and $\vec{v}$ are orthogonal if and only if $\vec{u} \cdot \vec{v} = 0$\\
+    Since $\displaystyle\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$, $\vec{u} \cdot \vec{v} = 0$ if and only if $\theta = \displaystyle\frac{\pi}{2}$
+\end{shaded}
+
 \end{document}
