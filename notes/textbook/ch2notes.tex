@@ -83,9 +83,12 @@
 \definecolor{gborange2}{HTML}{d65d0e}
 \definecolor{gbgray}{HTML}{a89984}
 \definecolor{gbgray2}{HTML}{928374}
-\color{fg0}
+\color{fg1}
 \pagecolor{bg0_s}
 \colorlet{shadecolor}{gbaqua2}
+
+\tikzstyle{mybox} = [draw=fg1,fill=bg0_s,very thick,rectangle,rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} = [draw=fg1,fill=gbaqua2,very thick,text=bg0_s,font=\bfseries,rounded corners]
 
 \setcounter{section}{2}
 \maketitle
@@ -97,10 +100,18 @@ Vectors with the same magnitude and direction are considered equivalent vectors 
 \vspace{2mm}\\
 \bf{Combining Vectors}\vspace{2mm}\\
 Scalars are quantities that have only a magnitude and no direction. Multiplying a vector by a scalar changes the vector's magnitude; this is called scalar multiplication. Changing the magnitude of a vector does not indicate a change in its direction.
-\begin{shaded}
-    \noindent\underline{\bf{Definition of Scalar Multiplication}}\vspace{2mm}\\
-    The product $k\vec{v}$ of a vector $\vec{v}$ and scalar $k$ is a vector with a magnitude that is $|k| \cdot ||\vec{v}||$ and a direction that is equal to the direction of $\vec{v}$ if $k>0$ and opposite the direction of $\vec{v}$ if $k<0$. If $k = 0$ or $\vec{v} = \vec{0} \implies k\vec{v} = \vec{0}$
-\end{shaded}
+
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                The product $k\vec{v}$ of a vector $\vec{v}$ and scalar $k$ is a vector with a magnitude that is $|k| \cdot ||\vec{v}||$ and a direction that is equal to the direction of $\vec{v}$ if $k>0$ and opposite the direction of $\vec{v}$ if $k<0$. If $k = 0$ or $\vec{v} = \vec{0} \implies k\vec{v} = \vec{0}$
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Definition of Scalar Multiplication};
+    \end{tikzpicture}
+\end{center}
+
 \noindent Because each vector may have its own direction, the process for adding vectors is different from adding scalars. The most common graphical method for adding two vectors is to place the initial point of the second vector at the terminal point of the first. The sum of the vectors $\vec{v}$ and $\vec{w}$ is the vector with an initial point that coincides with the initial point of $\vec{v}$ and a terminal point that coincides with the terminal point of $\vec{w}$.
 \begin{center}
     \begin{tikzpicture}[scale=2]
@@ -161,22 +172,33 @@ For vector subtraction, $\vec{v} - \vec{w}$ is defined as $\vec{v} + (-\vec{w}) 
 \end{center}
 \bf{Vector Components}\vspace{2mm}\\
 A vector with initial point at the origin is called a standard-position vector. Because the initial point of any vector in standard position is (0,0), it can be described by the coordinates of its terminal point.
-\begin{shaded}
-    \noindent\underline{\bf{Definition}}
-    \vspace{2mm}\\
-    The vector with initial point (0,0) and terminal point $(x,y)$ can be written in component form as
-    \begin{align*}
-        \vec{v} = \la x,y \ra
-    \end{align*}
-    The scalars $x$ and $y$ are called the components of $\vec{v}$
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                The vector with initial point (0,0) and terminal point $(x,y)$ can be written in component form as
+                \begin{align*}
+                    \vec{v} = \la x,y \ra
+                \end{align*}
+                The scalars $x$ and $y$ are called the components of $\vec{v}$
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}
+\end{center}
 \noindent For a vector not already in standard form its component form can be determined algebraically by subtracting the $x$ and $y$ values of the initial point from those of the terminal point.
-\begin{shaded}
-    \noindent Let $\vec{v}$ be a vector with initial point $(x_i,y_i)$ and terminal point $(x_t,y_t)$. Then $\vec{v}$ can be expressed in component form as 
-    \begin{align*}
-        \vec{v}= \la x_t - x_i, y_t - y_i \ra
-    \end{align*}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                \noindent Let $\vec{v}$ be a vector with initial point $(x_i,y_i)$ and terminal point $(x_t,y_t)$, $\vec{v}$ can be expressed in component form as 
+                \begin{align*}
+                    \vec{v}= \la x_t - x_i, y_t - y_i \ra
+                \end{align*}
+            \end{minipage}
+        };
+    \end{tikzpicture}
+\end{center}
 \noindent To find the magnitude of a vector, calculate the distance between its initial and terminal points. The magnitude of vector $\vec{v} = \la x, y \ra$ is denoted $||\vec{v}||$ and can be calculated using the formula
 \begin{align*}
     ||\vec{v}|| = \sqrt{x^2 + y^2}
@@ -194,49 +216,65 @@ The magnitude of a vector can also be derived using Pythagorean theorem.
     \end{tikzpicture}
 \end{center}
 Expressing vectors in component form allows scalar multiplication and vector addition to be performed algebraically.
-\begin{shaded}
-    \noindent Let $\vec{v} = \la x_1, y_1 \ra$ and $\vec{w} = \la x_2,y_2 \ra$ be vectors, and let $k$ be a scalar.\vspace{1mm}\\
-    \bf{Scalar Multiplication:} $k\vec{v} = \la kx_1, ky_1 \ra$\\
-    \bf{Vector Addition:} $\vec{v} + \vec{w} = \la x_1,y_1 \ra + \la x_2,y_2 \ra = \la x_1 + x_2, y_1 + y_2 \ra$
-\end{shaded}
-
-\begin{shaded}
-    \noindent\underline{\bf{Properties of Vector Operations}}\vspace{2mm}\\
-    Let $\vec{u}, \vec{v}$, and $\vec{w}$ be vectors in a plane. Let $r$ and $s$ be scalars.
-    \begin{align*}
-        \text{i}&. &\vec{u} + \vec{v} &= \vec{v} + \vec{u} &\text{Commutative Property}\\
-        \text{ii}&. &(\vec{u} + \vec{v}) + \vec{w} &= \vec{u} + (\vec{v} + \vec{w}) &\text{Associative Property}\\
-        \text{ii}&. &\vec{u} + \vec{0} &= \vec{u} &\text{Additive Identity Property}\\
-        \text{iv}&. &\vec{u} + (-\vec{u}) &= \vec{0} &\text{Additive Inverse Property}\\
-        \text{v}&. &r(s\vec{u}) &= (rs)\vec{u} &\text{Associativity of Scalar Multiplication}\\
-        \text{vi}&. &(r + s)\vec{u} &= r\vec{u} + s\vec{u} &\text{Distributive Property}\\
-        \text{vii}&. &r(\vec{u} + \vec{v}) &= r\vec{u} + r\vec{v} &\text{Distributive Property}\\
-        \text{viii}&. &1\vec{u} &= \vec{u} &\text{Identity Property}\\
-        \text{ix}&. &0u &= \vec{0} &\text{Zero Property}
-    \end{align*}
-\end{shaded}
-\begin{shaded}
-    \noindent\underline{\bf{Proof of Commutative \& Distributive Properties}}
-    \vspace{2mm}\\
-    Let $\vec{u} = \la x_1, y_1 \ra$ and $\vec{v} = \la x_2, y_2 \ra$
-    \vspace{1mm}\\
-    \bf{Commutative Property}
-    \vspace{1mm}\\
-    Apply the commutative property for $\mathbb{R}$
-    \begin{align*}
-        \vec{u} + \vec{v} = \la x_1 + x_2, y_1 + y_2 \ra = \la x_2 + x_1, y_2 + y_1 \ra = \vec{v} + \vec{u}
-    \end{align*}
-    \bf{Distributive Property}
-    \vspace{1mm}\\
-    Apply the distributive property for $\mathbb{R}$
-    \begin{align*}
-        r(\vec{u} + \vec{v}) &= r \cdot \la x_1 + x_2, y_1 + y_2 \ra\\
-        &= \la r(x_1 + x_2), r(y_1 + y_2) \ra\\
-        &= \la rx_1 + rx_2, ry_1 + ry_2 \ra\\
-        &= \la rx_1, ry_1 \ra + \la rx_2, ry_2 \ra\\
-        &= r\vec{u} + r\vec{v}
-    \end{align*}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                \noindent Let $\vec{v} = \la x_1, y_1 \ra$ and $\vec{w} = \la x_2,y_2 \ra$ be vectors, and let $k$ be a scalar.\vspace{1mm}\\
+                \bf{Scalar Multiplication:} $k\vec{v} = \la kx_1, ky_1 \ra$\\
+                \bf{Vector Addition:} $\vec{v} + \vec{w} = \la x_1,y_1 \ra + \la x_2,y_2 \ra = \la x_1 + x_2, y_1 + y_2 \ra$
+            \end{minipage}
+        };
+    \end{tikzpicture}
+\end{center}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                Let $\vec{u}, \vec{v}$, and $\vec{w}$ be vectors in a plane. Let $r$ and $s$ be scalars.
+                \begin{align*}
+                    \text{i}&. &\vec{u} + \vec{v} &= \vec{v} + \vec{u} &\text{Commutative Property}\\
+                    \text{ii}&. &(\vec{u} + \vec{v}) + \vec{w} &= \vec{u} + (\vec{v} + \vec{w}) &\text{Associative Property}\\
+                    \text{ii}&. &\vec{u} + \vec{0} &= \vec{u} &\text{Additive Identity Property}\\
+                    \text{iv}&. &\vec{u} + (-\vec{u}) &= \vec{0} &\text{Additive Inverse Property}\\
+                    \text{v}&. &r(s\vec{u}) &= (rs)\vec{u} &\text{Associativity of Scalar Multiplication}\\
+                    \text{vi}&. &(r + s)\vec{u} &= r\vec{u} + s\vec{u} &\text{Distributive Property}\\
+                    \text{vii}&. &r(\vec{u} + \vec{v}) &= r\vec{u} + r\vec{v} &\text{Distributive Property}\\
+                    \text{viii}&. &1\vec{u} &= \vec{u} &\text{Identity Property}\\
+                    \text{ix}&. &0u &= \vec{0} &\text{Zero Property}
+                \end{align*}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Properties of Vector Operations};
+    \end{tikzpicture}
+\end{center}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                Let $\vec{u} = \la x_1, y_1 \ra$ and $\vec{v} = \la x_2, y_2 \ra$
+                \vspace{1mm}\\
+                \bf{Commutative Property}
+                \vspace{1mm}\\
+                Apply the commutative property for $\mathbb{R}$
+                \begin{align*}
+                    \vec{u} + \vec{v} = \la x_1 + x_2, y_1 + y_2 \ra = \la x_2 + x_1, y_2 + y_1 \ra = \vec{v} + \vec{u}
+                \end{align*}
+                \bf{Distributive Property}
+                \vspace{1mm}\\
+                Apply the distributive property for $\mathbb{R}$
+                \begin{align*}
+                    r(\vec{u} + \vec{v}) &= r \cdot \la x_1 + x_2, y_1 + y_2 \ra\\
+                    &= \la r(x_1 + x_2), r(y_1 + y_2) \ra\\
+                    &= \la rx_1 + rx_2, ry_1 + ry_2 \ra\\
+                    &= \la rx_1, ry_1 \ra + \la rx_2, ry_2 \ra\\
+                    &= r\vec{u} + r\vec{v}
+                \end{align*}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Proof of Commutative \& Distributive Properties};
+    \end{tikzpicture}
+\end{center}
 \newpage\noindent
 In some cases, only the magnitude and direction of a vector are known, not the initial or terminal points. For these vectors, the horizontal and vertical components can be identified using trigonometry.
 \begin{center}
@@ -286,11 +324,16 @@ Thus $\vec{v}$ is the sum of a horizontal vector with magnitude $x$ and a vertic
 The two-dimensional rectangular coordinate system can be expanded by adding a third dimension, the $z$-axis which is perpendicular to both the $x$-axis and the $y$-axis.
 \vspace{2mm}\\
 \bf{Three-Dimensional Coordinate Systems}
-\begin{shaded}
-    \noindent\underline{\bf{Definition}}
-    \vspace{2mm}\\
-    The three-dimensional rectangular coordinate system consists of three perpendicular axes: the $x$-, $y$-, and $z$-axes, and an origin at the point of intersection (0) of the axes. Because each axis is a number line representing all real numbers in $\mathbb{R}$, the three-dimensional system is often denoted by $\mathbb{R}^3$.
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                The three-dimensional rectangular coordinate system consists of three perpendicular axes: the $x$-, $y$-, and $z$-axes, and an origin at the point of intersection (0) of the axes. Because each axis is a number line representing all real numbers in $\mathbb{R}$, the three-dimensional system is often denoted by $\mathbb{R}^3$.
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}
+\end{center}
 \noindent In two dimensions, a point in the plane is described with the coordinates $(x,y)$. Each coordinate describes how the point aligns with the corresponding axis. In three dimensions, a new coordinate $z$ is appended to indicate alignment with the $z$-axis: $(x,y,z)$.
 \begin{center}
     \begin{tikzpicture}[scale=1.5]
@@ -330,14 +373,19 @@ If two points lie in the same coordinate plane, then it is straightforward to ca
     d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \end{align*}
 The formula for the distance between two points in space is a natural extension of this formula.
-\begin{shaded}
-    \noindent\underline{\bf{The Distance Between Two Points in Space}}
-    \vspace{2mm}\\
-    The distance $d$ between points $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is given by the formula
-    \begin{align}
-        d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
-    \end{align}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                The distance $d$ between points $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is given by the formula
+                \begin{align}
+                    d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+                \end{align}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {The Distance Between Two Points in Space};
+    \end{tikzpicture}
+\end{center}
 \newpage
 \noindent\bf{Writing Equations in} $\mathbf{\mathbb{R}^3}$
 \vspace{2mm}\\
@@ -405,14 +453,20 @@ A sphere is the set of all points equidistant from a fixed point, the center of 
         \filldraw (0,0) circle (1pt);
     \end{tikzpicture}
 \end{center}
-\begin{shaded}
-    \noindent\bf{\underline{Equation of a Sphere}}
-    \vspace{2mm}\\
-    A sphere with center $(a,b,c)$ and radius $r$ can be represented by the equation
-    \begin{equation}
-        (x-a)^2 + (y - b)^2 + (z - c)^2 = r^2
-    \end{equation}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                A sphere with center $(a,b,c)$ and radius $r$ can be represented by the equation
+                \setcounter{equation}{1}
+                \begin{equation}
+                    (x-a)^2 + (y - b)^2 + (z - c)^2 = r^2
+                \end{equation}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Equation of a Sphere};
+    \end{tikzpicture}
+\end{center}
 \newpage
 \noindent\bf{Working with Vectors in $\mathbb{R}^{\mathbf{3}}$}
 \vspace{1mm}\\
@@ -435,26 +489,37 @@ The standard unit vectors are easily extended to three dimensions, $\ih = \la 1,
 
 \subsection{The Dot Product}
 The first type of vector multiplication is called the dot product because of the notation used and is defined as follows:
-\begin{shaded}
-    \noindent\bf{\underline{Definition}}
-    \vspace{2mm}\\
-    Let $\vec{u} = \la u_1, u_2, u_3 \ra$ and $\vec{v} = \la v_1, v_2, v_3 \ra$ be vectors, $\vec{u},\vec{v} \in \mathbb{R}$. The dot product $\vec{u} \cdot \vec{v}$ is defined as
-    \begin{align}
-    \vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3
-    \end{align}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                \setcounter{equation}{2}
+                Let $\vec{u} = \la u_1, u_2, u_3 \ra$ and $\vec{v} = \la v_1, v_2, v_3 \ra$ be vectors, $\vec{u},\vec{v} \in \mathbb{R}$. The dot product $\vec{u} \cdot \vec{v}$ is defined as
+                \begin{align}
+                \vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3
+                \end{align}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}
+\end{center}
 \noindent When two vectors are added or subtracted, the result is a vector; the dot product of two vectors is a scalar. Like addition and subtraction, the dot product has several algebraic properties.
-\begin{shaded}
-    \noindent\bf{\underline{Properties of the Dot Product}}
-    \vspace{2mm}\\
-    Let $\vec{u}$, $\vec{v}$, and $\vec{w}$ be vectors, and let $c$ be a scalar.
-    \begin{align*}
-        \text{i}&. &\vec{u} \cdot \vec{v} &= \vec{v} \cdot \vec{u} &\text{Commutative Property}\\
-        \text{ii}&. &\vec{u} \cdot (\vec{v} + \vec{w}) &= \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w} &\text{Distributive Property}\\
-        \text{iii}&. &c(\vec{u} \cdot \vec{v}) &= (c\vec{u}) \cdot \vec{v} = \vec{u} \cdot (c\vec{v}) &\text{Associative Property}\\
-        \text{iv}&. &\vec{v} \cdot \vec{v} &= ||\vec{v}||^2 &\text{Property of Magnitude}
-    \end{align*}
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                Let $\vec{u}$, $\vec{v}$, and $\vec{w}$ be vectors, and let $c$ be a scalar.
+                \begin{align*}
+                    \text{i}&. &\vec{u} \cdot \vec{v} &= \vec{v} \cdot \vec{u} &\text{Commutative Property}\\
+                    \text{ii}&. &\vec{u} \cdot (\vec{v} + \vec{w}) &= \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w} &\text{Distributive Property}\\
+                    \text{iii}&. &c(\vec{u} \cdot \vec{v}) &= (c\vec{u}) \cdot \vec{v} = \vec{u} \cdot (c\vec{v}) &\text{Associative Property}\\
+                    \text{iv}&. &\vec{v} \cdot \vec{v} &= ||\vec{v}||^2 &\text{Property of Magnitude}
+                \end{align*}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Properties of the Dot Product};
+    \end{tikzpicture}
+\end{center}
 \noindent\bf{Using the Dot Product to Find the Angle Between Two Vectors}
 \vspace{1mm}\\
 The dot product provides a way to measure the agle between two nonzero vectors in standard position. This is due to the fact that the dot product can be expressed in terms of the cosine of the angle formed by the two vectors.
@@ -469,6 +534,7 @@ The dot product provides a way to measure the agle between two nonzero vectors i
     \end{tikzpicture}
 \end{center}
 \noindent The dot product of two vectors is the product of the magnitude of each vector and the cosine of the angle between them
+\setcounter{equation}{3}
 \begin{equation}
     \vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos(\theta)
 \end{equation}
@@ -511,11 +577,16 @@ This form of the dot product can be used to find the angle between two nonzero v
     \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}
 \end{equation}
 Because we are considering the smallest angle between the vectors, assume $0 \leq \theta \leq \pi$. Over this range, $\arccos(\theta)$ is unique, and the angle $\theta$ can be determined.
-\begin{shaded}
-    \noindent\bf{\underline{Theorem:} Orthogonal Vectors}
-    \vspace{2mm}\\
-    Two nonzero vectors $\vec{u}$ and $\vec{v}$ are orthogonal if and only if $\vec{u} \cdot \vec{v} = 0$\\
-    Since $\displaystyle\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$, $\vec{u} \cdot \vec{v} = 0$ if and only if $\theta = \displaystyle\frac{\pi}{2}$
-\end{shaded}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                Two nonzero vectors $\vec{u}$ and $\vec{v}$ are orthogonal if and only if $\vec{u} \cdot \vec{v} = 0$\\
+                Since $\displaystyle\cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|}$, $\vec{u} \cdot \vec{v} = 0$ if and only if $\theta = \displaystyle\frac{\pi}{2}$
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Theorem: Orthogonal Vectors};
+    \end{tikzpicture}
+\end{center}
 
 \end{document}
