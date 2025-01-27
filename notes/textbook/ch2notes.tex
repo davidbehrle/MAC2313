@@ -29,9 +29,11 @@
 
 \let\phi\varphi
 \let\bf\textbf
-\let\la\langle
-\let\ra\rangle
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
 \pgfplotsset{compat=1.18}
+\newcommand\proj[2]{\text{proj}_{\vec{#1}}{\vec{#2}}}
+\newcommand\comp[2]{\text{comp}_{\vec{#1}}{\vec{#2}}}
 \newcommand\der[2]{\frac{d #1}{d #2}}
 \newcommand\Deltat{\Delta t}
 \newcommand{\ih}{\hat{\imath}}
@@ -588,5 +590,82 @@ Because we are considering the smallest angle between the vectors, assume $0 \le
         \node[fancytitle,right=10pt] at (box.north west) {Theorem: Orthogonal Vectors};
     \end{tikzpicture}
 \end{center}
+In practical computations, the angle a vector makes with each of the coordinate axes - its direction angles - are very important. Direction angles are often calculated using the dot product and the cosines of the angles, called direction cosines.
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[->,-latex,thick] (0,0)--(1.75,0);
+        \draw[->,-latex,thick] (0,0)--(0,1.75);
+        \draw[->,-latex,thick] (0,0)--({-1.75*cos(45)},{-1.75*sin(45)});
+        \draw (0,0) coordinate (o);
+        \draw (0,1) coordinate (a);
+        \draw (1,0) coordinate (b);
+        \draw ({-cos(45)},{-sin(45)}) coordinate (c);
+        \draw ({1.5*cos(60)},{1.5*sin(60)}) coordinate (d);
+        \draw[->,-latex,very thick,gbblue2] (0,0)--(a);
+        \draw pic["$\alpha$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=2.5mm]{angle=d--o--c};
+        \draw pic["$\beta$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=4mm]{angle=b--o--d};
+        \draw pic["$\gamma$",draw=fg1,-,thick,angle eccentricity=1.5,angle radius=5mm]{angle=d--o--a};
+        \draw[->,-latex,very thick,gbred] (0,0)--(d);
+        \draw[->,-latex,very thick,gbblue2] (0,0)--(b);
+        \draw[->,-latex,very thick,gbblue2] (0,0)--(c);
+    \end{tikzpicture}
+\end{center}
+For example, the direction cosines of the vector $\vec{v} = \la 2, 3, 3 \ra$ are $\cos(\alpha) = \frac{2}{\sqrt{22}}$, $\cos(\beta) = \frac{3}{\sqrt{22}}$, and $\cos(\gamma) = \frac{3}{\sqrt{22}}$. For any vector $\vec{u} = \la a, b, c \ra$ its direction cosines are given by $\cos(\alpha) = \frac{a}{|\vec{u}|},\ \cos(\beta) = \frac{b}{|\vec{u}|}$, and $\cos(\gamma) = \frac{c}{|\vec{u}|}$
+\newpage
+\noindent\bf{Projections}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox] (box){
+            \begin{minipage}{0.95\textwidth}
+                The vector projection of $\vec{v}$ onto $\vec{u}$ is denoted $\proj{u}{v}$. It has the same initial point as $\vec{u}$ and $\vec{v}$, and the same direction as $\vec{u}$, and represents the component of $\vec{v}$ acting in the direction of $\vec{u}$. If $\theta$ is the angle between $\vec{u}$ and $\vec{v}$, then the length of $\proj{u}{v}$ is $|\proj{u}{v}| = |\vec{v}|\cos(\theta)$.
+                \vspace{1mm}\\
+                Expressing $\cos(\theta)$ in terms of the dot product, this becomes
+                \begin{align*}
+                    |\proj{u}{v}| &= |\vec{v}|\cos(\theta)\\
+                    &= |\vec{v}|\left(\frac{|\vec{u} \cdot \vec{v}|}{|\vec{u}||\vec{v}|}\right)\\
+                    &= \frac{|\vec{u} \cdot \vec{v}|}{|\vec{u}|}
+                \end{align*}
+                This is multiplied by a unit vector in the direction of $\vec{u}$ to give $\proj{u}{v}$
+                \setcounter{equation}{5}
+                \begin{equation}
+                    \proj{u}{v} = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}|}\left(\frac{1}{|\vec{u}|} \vec{u}\right) = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}|^2} \vec{u}
+                \end{equation}
+                The magnitude of this vector is known as the scalar projection of $\vec{v}$ onto $\vec{u}$ and is denoted by
+                \begin{equation}
+                    |\proj{u}{v}| = \comp{u}{v} = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}|}
+                \end{equation}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west) {Definition};
+    \end{tikzpicture}
+\end{center}
+\setcounter{equation}{7}
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[thin,fg4] ({0.15*cos(35)},{0.15*sin(35)})--([turn]90:0.15)--([turn]90:0.15);
+        \draw[->,-latex,thick] ({0.7*cos(35)},{0.7*sin(35)})--node[below]{$\vec{u}$}({2*cos(35)},{2*sin(35)});
+        \draw[->,-latex,thick,gbblue2] ({0.7*cos(35)},{0.7*sin(35)})--node[below,xshift=4mm,text=fg1]{$\proj{u}{v}$}(0,0);
+        \draw[dashed,thick,fg4] (0,0)--({-1.3*cos(55)},{1.3*sin(55)});
+        \draw[->,-latex,thick] ({0.7*cos(35)},{0.7*sin(35)})--node[above]{$\vec{v}$} ({-1.3*cos(55)},{1.3*sin(55)});
+    \end{tikzpicture}
+\end{center}
+It is sometimes useful to decompose vectors, splitting them into sums. This process is called resolution of a vector into components. Projections allow for the identification of two orthogonal vectors with a desired sum. For example, let $\vec{v} = \la 6, -4 \ra$ and $\vec{u} = \la 3, 1 \ra$. To decompose the vector $\vec{v}$ into orthogonal components such that one of the component vectors has the same direction as $\vec{u}$, first find the component that has the same direction as $\vec{u}$ by projecting $\vec{v}$ onto $\vec{u}$. Let $\proj{u}{v} = \vec{p}$
+\begin{align*}
+    \vec{p} &= \frac{\vec{u} \cdot \vec{v}}{|\vec{u}|^2}\vec{u}\\
+    &= \frac{7}{5}\vec{u} = \frac{7}{5} \la 3, 1 \ra = \la \frac{21}{5}, \frac{7}{5} \ra
+\end{align*}
+Consider the vector $\vec{q} = \vec{v} - \vec{p}$
+\begin{align*}
+    \vec{q} &= \vec{v} - \vec{p}\\
+    &= \la 6, -4 \ra - \la \frac{21}{5}, \frac{7}{5} \ra\\
+    &= \la \frac{9}{5}, -\frac{27}{5} \ra
+\end{align*}
+By the definition of $\vec{q}$, $\vec{v} = \vec{q} + \vec{p}$, and
+\begin{align*}
+    \vec{q} \cdot \vec{p} &= \la \frac{9}{5}, -\frac{27}{5} \ra \cdot \la \frac{21}{5}, \frac{7}{5} \ra\\
+    &= \frac{9(21)}{25} + \frac{-27(7)}{25}\\
+    &= \frac{189}{25} - \frac{189}{25} = 0
+\end{align*}
+Therefore $\vec{q}$ and $\vec{p}$ are orthogonal.
 
 \end{document}
