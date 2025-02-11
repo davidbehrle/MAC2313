@@ -668,4 +668,43 @@ By the definition of $\vec{q}$, $\vec{v} = \vec{q} + \vec{p}$, and
 \end{align*}
 Therefore $\vec{q}$ and $\vec{p}$ are orthogonal.
 
+\newpage
+\subsection{The Cross Product}
+The cross product of two nonzero vectors generates a third vector orthogonal to the first two. Let $\vec{u} = \la u_1, u_2, u_3 \ra$ and $\vec{v} = \la v_1, v_2, v_3 \ra$ be nonzero vectors. To find the vector $\vec{w} = \la w_1, w_2, w_3 \ra$ orthogonal to both $\vec{u}$ and $\vec{v}$ - that is $\vec{w}$ such that $\vec{u} \cdot \vec{w} = 0$ and $\vec{v} \cdot \vec{w} = 0$ - $\vec{w}$ must satisfy the following
+\begin{align*}
+    u_1w_1 + u_2w_2 + u_3w_3 &= 0 \\
+    v_1w_1 + v_2w_2 + v_3w_3 &= 0
+\end{align*}
+The variable $w_3$ can be eliminated by multiplying the top equation by $v_3$ and the bottom equation by $v_3$ which gives
+\begin{align*}
+    (u_1v_3 - v_1u_3)w_1 + (u_2v_3 - v_2u_3)w_2 = 0
+\end{align*}
+Selecting values for $w_1$ and $w_2$ and substituting back into the original equations gives
+\begin{align*}
+    w_1 &= u_2v_3 - u_3v_2 \\
+    w_2 &= -(u_1v_3 - u_3v_1) \\
+    w_3 &= u_1v_2 - u_2v_1
+\end{align*}
+Which gives the vector $\vec{w}$ which is orthogonal to both $\vec{u}$ and $\vec{v}$
+\begin{align*}
+    \vec{w} = \la u_2v_3 - u_3v_2, -(u_1v_3 - u_3v_1), u_1v_2 - u_2v_1 \ra
+\end{align*}
+\begin{center}
+    \begin{tikzpicture}
+        \node[mybox](box){
+            \begin{minipage}{0.95\textwidth}
+                Let $\vec{u} = \la u_1, u_2, u_3 \ra$ and $\vec{v} = \la v_1, v_2, v_3 \ra$. Then the cross product $\vec{u} \times \vec{v}$ is the vector
+                \setcounter{equation}{8}
+                \begin{align}
+                    \begin{split}
+                        \vec{u} \times \vec{v} &= (u_2v_3 - u_3v_2)\ih - (u_1v_3 - u_3v_1)\jh + (u_1v_2 - u_2v_1)\kh \\
+                        &= \la u_2v_3 - u_3v_2, -(u_1v_3 - u_3v_1), u_1v_2 - u_2v_1 \ra
+                    \end{split}
+                \end{align}
+            \end{minipage}
+        };
+        \node[fancytitle,right=10pt] at (box.north west){Definition};
+    \end{tikzpicture}
+\end{center}
+
 \end{document}
